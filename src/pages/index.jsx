@@ -8,7 +8,6 @@ import { Footer } from '../components/footer/footer';
 import '../global.css';
 import './index.css';
 
-
 document.querySelector('#root').innerHTML = render(
   <div className="page">
     < Header />
@@ -21,3 +20,14 @@ document.querySelector('#root').innerHTML = render(
     < Footer />
   </div>
 );
+
+const NavButton = document.querySelector(".nav-btn")
+const Rollout = document.querySelector(".rollout-nav")
+
+NavButton.addEventListener('click', () => {
+  Rollout.classList.toggle("nav-closed")
+})
+
+Rollout.addEventListener('click',() => {
+  Rollout.classList.toggle("nav-closed")
+})

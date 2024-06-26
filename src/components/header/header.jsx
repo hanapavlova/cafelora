@@ -2,7 +2,7 @@ import './header.css';
 
 export const Header = () => {
 return (<header>
-      <div className="header__content container">
+      <div className="header__content container" id="home">
         <div className="site-logo"></div>
 
         <div className="navigation">
