@@ -1,7 +1,7 @@
 import { Drink } from '../drink/drink';
 import './menu.css';
 
-export const Menu = () => {
+export const Menu = ({drinks}) => {
 return (<section className="menu" id="menu">
         <div className="container">
           <h2>Naše nabídka</h2>
@@ -11,7 +11,7 @@ return (<section className="menu" id="menu">
           <div className="drinks-list">
           < Drink 
           id={0}
-          name="Romano"
+          name={drinks}
           ordered={false}
           image="http://localhost:4000/assets/cups/romano.png"
           layers={[

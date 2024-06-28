@@ -8,12 +8,22 @@ import { Footer } from '../components/footer/footer';
 import '../global.css';
 import './index.css';
 
+const response = await fetch('http://localhost:4000/api/drinks');
+const coffeeData = await response.json();
+
+const coffees = coffeeData.data.map(item => item.name);
+
+console.log(response)
+console.log(coffees)
+
 document.querySelector('#root').innerHTML = render(
   <div className="page">
     < Header />
     <main>
       < Banner />
-      < Menu />
+      < Menu 
+      drinks={coffees.map(coffee => <li>{coffee}</li>)}
+      />
       < Gallery />
       < Contact />
     </main>

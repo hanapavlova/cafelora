@@ -2,6 +2,9 @@ import { Layer } from '../layer/layer';
 import './drink.css';
 
 export const Drink = ({id, name, ordered, image, layers}) => {
+
+  
+
 return (<div className="drink">
               <div className="drink__product">
                 <div className="drink__cup">
