@@ -11,7 +11,7 @@ import './index.css';
 const response = await fetch('http://localhost:4000/api/drinks');
 const coffeeData = await response.json();
 
-const coffees = coffeeData.data.map(item => item.name);
+const coffees = coffeeData.data;
 
 console.log(response)
 console.log(coffees)
@@ -22,7 +22,7 @@ document.querySelector('#root').innerHTML = render(
     <main>
       < Banner />
       < Menu 
-      drinks={coffees.map(coffee => <li>{coffee}</li>)}
+      drinks={coffees}
       />
       < Gallery />
       < Contact />

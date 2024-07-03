@@ -1,6 +1,7 @@
 /* Menu - Drink */
 .drink {
-    width: 20rem;
+    width: 30rem;
+    padding: 20px;
   }
   
   .drink__product {
