@@ -10,19 +10,21 @@ return (<div className="drink">
                 </div>
                 <div className="drink__info">
                   <h3>{name}</h3>
-                  {layers.map((layer => {
+                  {layers.map((layer, index) => {
                     return (
-                    < Layer color={layer.color} label={layer.label} />)
+                    < Layer key={index} color={layer.color} label={layer.label} />)
                   }
-                  ))
+                  )
                   }
                 </div>
               </div>
-              <form className="drink__controls">
-                <input type="hidden" className="order-id" value="1" />
-                <button className="order-btn">
-                  Objednat
-                </button>
+              <form className="drink__controls" data-id={id}>
+                <input type="hidden" className="order-id" value={id} />
+                 
+                 {
+                    ordered ? <button className="order-btn--ordered">Zrušit</button> : <button className="order-btn">Objednat</button>
+                 }
+
               </form>
             </div>
             )

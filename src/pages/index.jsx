@@ -16,9 +16,31 @@ const coffees = coffeeData.data;
 console.log(response)
 console.log(coffees)
 
+const orderBtn = document.querySelectorAll(".order-btn")
+orderBtn.forEach((btn) => {
+  btn.addEventListener('click', async (e) => {
+  const drinkId = e.target.dataset.id
+  console.log(drinkId)
+
+  await fetch(`/api/drinks/${drinkId}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'hanapavlova'
+    },
+    body: JSON.stringify([{
+      op: 'replace',
+      path: '/ordered',
+      value: true,
+    }])
+    }
+  )
+})
+})
+
 document.querySelector('#root').innerHTML = render(
   <div className="page">
-    < Header />
+    < Header showMenu={true} />
     <main>
       < Banner />
       < Menu 
