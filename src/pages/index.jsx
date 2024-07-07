@@ -16,27 +16,6 @@ const coffees = coffeeData.data;
 console.log(response)
 console.log(coffees)
 
-const orderBtn = document.querySelectorAll(".order-btn")
-orderBtn.forEach((btn) => {
-  btn.addEventListener('click', async (e) => {
-  const drinkId = e.target.dataset.id
-  console.log(drinkId)
-
-  await fetch(`/api/drinks/${drinkId}`, {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: 'hanapavlova'
-    },
-    body: JSON.stringify([{
-      op: 'replace',
-      path: '/ordered',
-      value: true,
-    }])
-    }
-  )
-})
-})
 
 document.querySelector('#root').innerHTML = render(
   <div className="page">
@@ -53,6 +32,28 @@ document.querySelector('#root').innerHTML = render(
   </div>
 );
 
+const orderForm = document.querySelectorAll(".drink__controls")
+orderForm.forEach((form) => {
+  form.addEventListener('click', async (e) => {
+  const drinkId = e.target.dataset.id
+  console.log(drinkId)
+
+  await fetch(`http://localhost:4000/api/drinks/${drinkId}`,{
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'hanapavlova'
+    },
+    body: JSON.stringify([{
+      op: 'replace',
+      path: '/ordered',
+      value: true,
+    }])
+    }
+  )
+})
+})
+
 const NavButton = document.querySelector(".nav-btn")
 const Rollout = document.querySelector(".rollout-nav")
 
@@ -63,3 +64,4 @@ NavButton.addEventListener('click', () => {
 Rollout.addEventListener('click',() => {
   Rollout.classList.toggle("nav-closed")
 })
+

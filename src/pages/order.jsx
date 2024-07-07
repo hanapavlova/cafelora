@@ -1,6 +1,8 @@
 import { render } from '@czechitas/render';
 import { Header } from '../components/header/header';
 import { Footer } from '../components/footer/footer';
+import { OrderItem } from '../components/orderItem/orderItem';
+import { Order } from '../components/order/order';
 import '../global.css';
 import './index.css';
 import './order.css';
@@ -37,6 +39,7 @@ document.querySelector('#root').innerHTML = render(
           </div>
         </div>
       </main>
+
 
       <Footer/>
 

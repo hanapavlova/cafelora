@@ -12,6 +12,7 @@ return (<section className="menu" id="menu">
           {drinks.map((drink => {
             return (
               < Drink 
+              key={drink.id}
               id={drink.id}
               name={drink.name}
               ordered={drink.ordered}
